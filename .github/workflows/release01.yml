@@ -4,8 +4,22 @@ on:
   workflow_dispatch: {}
 
 jobs:
-  Dev:
+  Development:
     runs-on: ubuntu-latest
     steps:
-    - name: Run on ${{ github.job }}
+    - name: Run on env
+      run: echo "I am running on ${{ github.job }}"
+
+  Stage:
+    runs-on: ubuntu-latest
+    needs: Development
+    steps:
+    - name: Run on env
+      run: echo "I am running on ${{ github.job }}"
+
+  Production:
+    runs-on: ubuntu-latest
+    needs: Stage
+    steps:
+    - name: Run on env
       run: echo "I am running on ${{ github.job }}"
