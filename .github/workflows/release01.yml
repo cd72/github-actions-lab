@@ -6,12 +6,14 @@ on:
 jobs:
   Development:
     runs-on: ubuntu-latest
+    environment: DEV
     steps:
     - name: Run on env
       run: echo "I am running on ${{ github.job }}"
 
   Stage:
     runs-on: ubuntu-latest
+    environment: STAGE
     needs: Development
     steps:
     - name: Run on env
@@ -19,6 +21,7 @@ jobs:
 
   Production:
     runs-on: ubuntu-latest
+    environment: PROD
     needs: Stage
     steps:
     - name: Run on env
