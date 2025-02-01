@@ -1,0 +1,11 @@
+name: Production Release
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  Dev:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Send greeting
+      run: echo "I am running on ${{ github.job }}"
