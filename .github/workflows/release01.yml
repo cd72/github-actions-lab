@@ -7,5 +7,5 @@ jobs:
   Dev:
     runs-on: ubuntu-latest
     steps:
-    - name: Send greeting
+    - name: Run on ${{ github.job }}
       run: echo "I am running on ${{ github.job }}"
